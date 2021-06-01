@@ -1,0 +1,157 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class Gui_XacNhanDonHang extends JFrame implements ActionListener,MouseListener {
+	private JLabel lblTieuDe,lblMaKH,lblTenKH,lblCmndKH,lblDiaChi,lblSDT,lblGioiTinh,lblNoiDung;
+	private JTextField txtMaKH,txtTenKH,txtCmndKH,txtDiaChi,txtSDT,txtGioiTinh,txtTimKiem;
+	private JButton btnXacNhan,btnHuyBo,btnTimKiem;
+	private ButtonGroup btngroup;
+	private JRadioButton raTen,raMa,raCmnd,raSDT;
+	public Gui_XacNhanDonHang() {
+		setTitle("Xac Nhan Don Hang");
+		setSize(500,700);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE) ;
+    	setLocationRelativeTo(null);
+    	setResizable(false);
+    	Build_GUI();
+	}
+	public void Build_GUI() {
+		JPanel pNorth;
+		add(pNorth=new JPanel(),BorderLayout.NORTH);
+		lblTieuDe=new JLabel("Xac Nhan Mua Hang");
+		pNorth.add(lblTieuDe);
+		
+		JPanel pCen,pLeft,pRight;
+		add(pCen=new JPanel(),BorderLayout.CENTER);
+		pCen.setLayout(null);
+		pCen.add(pLeft=new JPanel());
+		pLeft.setBorder(BorderFactory.createTitledBorder("Tim Kiem Khách Hàng"));
+		pLeft.setBounds(10, 20,480,180);
+		pLeft.setLayout(null);
+		btngroup=new ButtonGroup();
+		
+		raMa=new JRadioButton("Tìm Theo Mã");
+		raMa.setSelected(true);
+		raMa.setBounds(20, 20,150, 30);
+		pLeft.add(raMa);
+		btngroup.add(raMa);
+		
+
+		raTen=new JRadioButton("Tim Theo Tên");
+    	raTen.setBounds(180, 20,150, 30);
+    	pLeft.add(raTen);
+    	btngroup.add(raTen);
+    	
+    	raCmnd=new JRadioButton("Tìm Theo CMND");
+    	raCmnd.setBounds(20, 60,150, 30);
+    	pLeft.add(raCmnd);
+		btngroup.add(raCmnd);
+		
+		raSDT=new JRadioButton("Tim Theo SDT");
+		raSDT.setBounds(180, 60,150, 30);
+		pLeft.add(raSDT);
+    	btngroup.add(raSDT);
+    	
+    	pLeft.add(lblNoiDung=new JLabel("Nhập Nội Dung Cần Tìm"));
+		lblNoiDung.setBounds(30, 100, 300, 30);
+		pLeft.add(txtTimKiem=new JTextField());
+		txtTimKiem.setBounds(30, 140, 150, 30);
+		pLeft.add(btnTimKiem=new JButton("Tìm Kiếm"));
+		btnTimKiem.setBounds(190, 140, 100, 30);
+		
+		pCen.add(pRight=new JPanel());
+		pRight.setLayout(null);
+		pRight.setBorder(BorderFactory.createTitledBorder("Thong Tin Khách Hàng"));
+		pRight.setBounds(10, 180,480,270);
+		
+		pRight.add(lblMaKH=new JLabel("Mã Khách Hàng :"));
+		pRight.add(lblTenKH=new JLabel("Tên Khách Hàng :"));
+		pRight.add(lblCmndKH=new JLabel("Chứng Minh Nhân Dân :"));
+		pRight.add(lblDiaChi=new JLabel("Địa Chỉ :"));
+		pRight.add(lblGioiTinh=new JLabel("Giới Tính :"));
+		pRight.add(lblSDT=new JLabel("Số Điện Thoại :"));
+		
+		lblMaKH.setBounds(20, 20, 150, 30);                    
+		lblTenKH.setBounds(20, 60, 150, 30); 
+		lblCmndKH.setBounds(20, 100, 150, 30); 
+		lblDiaChi.setBounds(20, 140, 150, 30);
+		lblGioiTinh.setBounds(20,180,150,30);
+		lblSDT.setBounds(20, 220, 150, 30);
+		
+		pRight.add(txtMaKH=new JTextField());
+		pRight.add(txtTenKH=new JTextField());
+		pRight.add(txtCmndKH=new JTextField());
+		pRight.add(txtDiaChi=new JTextField());
+		pRight.add(txtGioiTinh=new JTextField());
+		pRight.add(txtSDT=new JTextField());
+		
+		txtMaKH.setBounds(190,20,150,30);
+		txtTenKH.setBounds(190,60,150,30);
+		txtCmndKH.setBounds(190,100,150,30);
+		txtDiaChi.setBounds(190,140,150,30);
+		txtGioiTinh.setBounds(190,180,150,30);
+		txtSDT.setBounds(190,220,150,30);
+		
+		pCen.add(btnXacNhan=new JButton("Xac Nhan Mua Hang"));
+		btnXacNhan.setBounds(100, 260, 100, 30);
+		pCen.add(btnHuyBo=new JButton("Huy Bo"));
+		btnHuyBo.setBounds(100, 250, 100, 30);
+		
+		
+		
+		
+		btnHuyBo.addActionListener(this);
+		btnXacNhan.addActionListener(this);
+		btnTimKiem.addActionListener(this);
+	}
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

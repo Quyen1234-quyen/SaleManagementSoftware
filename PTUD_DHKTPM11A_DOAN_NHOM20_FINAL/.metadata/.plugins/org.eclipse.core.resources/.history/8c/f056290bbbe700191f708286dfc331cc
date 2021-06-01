@@ -1,0 +1,30 @@
+package dao;
+
+import entity.Admin;
+import entity.SanPham;
+
+public class SanPhamDao extends AbstractCRUD<SanPham> {
+	public SanPham timTheoMaSanPham(int ma){
+		return em.find(SanPham.class, ma);
+	}
+	public boolean xoaSanPhamTheoMa(int ma) {
+		try {
+			SanPham sp=timTheoMaSanPham(ma);
+			if(sp!=null) {
+				em.remove(sp);
+			}
+			return true;
+			
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	public boolean xoaSanPham(SanPham sp) {
+		try {
+			xoaSanPhamTheoMa(sp.getMaSanPham());
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+}

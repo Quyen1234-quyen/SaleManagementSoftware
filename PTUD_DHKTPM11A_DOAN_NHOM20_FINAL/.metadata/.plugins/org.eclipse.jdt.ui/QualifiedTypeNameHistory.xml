@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+<fullyQualifiedTypeName name="dao.MyEntityManagerFactory"/>
+<fullyQualifiedTypeName name="dao.NhanVienDao"/>
+<fullyQualifiedTypeName name="dao.TaiKhoanDao"/>
+<fullyQualifiedTypeName name="dao.AdminDao"/>
+<fullyQualifiedTypeName name="entity.Admin"/>
+<fullyQualifiedTypeName name="controller.XuLy_Admin"/>
+<fullyQualifiedTypeName name="controller.XuLy_DangNhap"/>
+<fullyQualifiedTypeName name="dao.SanPhamDao"/>
+<fullyQualifiedTypeName name="entity.SanPham"/>
+<fullyQualifiedTypeName name="dao.KhachHangDao"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="test.Test_KhachHang"/>
+<fullyQualifiedTypeName name="controller.XuLy_NhanVien"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="entity.TaiKhoan"/>
+<fullyQualifiedTypeName name="controller.XuLy_TaiKhoan"/>
+<fullyQualifiedTypeName name="gui.Gui_TaoDonHang"/>
+<fullyQualifiedTypeName name="gui.Gui_TaoTaiKhoan"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="com.lowagie.text.List"/>
+<fullyQualifiedTypeName name="entity.NhanVien"/>
+<fullyQualifiedTypeName name="entity.KhachHang"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.persistence.Query"/>
+<fullyQualifiedTypeName name="dao.DonDatHangDao"/>
+<fullyQualifiedTypeName name="dao.ChiTietDonDatHangDao"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="controller.XuLy_KhachHang"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="gui.Gui_XacNhanDonHang"/>
+<fullyQualifiedTypeName name="controller.XuLy_SanPham"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="controller.XuLy_DonDatHang"/>
+<fullyQualifiedTypeName name="entity.DonDatHang"/>
+<fullyQualifiedTypeName name="controller.XuLy_ChiTietDonDatHang"/>
+<fullyQualifiedTypeName name="entity.ChiTietDonDatHang"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,47 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Gui_TaoTaiKhoan extends JFrame implements ActionListener {
+	private JLabel lblTieuDe,lblTenTaiKhoan,lblMatKhau;
+	private JTextField txtTenTK,txtMatKhau;
+	private JButton btnTao;
+	public Gui_TaoTaiKhoan(String ten) {
+		setTitle("Tạo Tài Khoản");
+		setSize(300,300);
+    	setLocationRelativeTo(null);
+    	setResizable(false);
+    	Build_GUI(ten);
+	}
+	public void Build_GUI(String ten) {
+		JPanel pNorth;
+		add(pNorth=new JPanel(),BorderLayout.NORTH);
+		lblTieuDe=new JLabel("TẠO TÀI KHOẢN NHÂN VIÊN");
+		pNorth.add(lblTieuDe);
+		
+		JPanel pCen;
+		add(pCen=new JPanel(),BorderLayout.CENTER);
+		pCen.setLayout(null);
+		
+		pCen.add(lblTenTaiKhoan=new JLabel("Tên Tài Khoản :"));
+		pCen.add(lblMatKhau=new JLabel("Mật Khẩu :"));
+		
+		lblTenTaiKhoan.setBounds(20, 40, 100, 30);
+		lblMatKhau.setBounds(20, 60, 100, 30);
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

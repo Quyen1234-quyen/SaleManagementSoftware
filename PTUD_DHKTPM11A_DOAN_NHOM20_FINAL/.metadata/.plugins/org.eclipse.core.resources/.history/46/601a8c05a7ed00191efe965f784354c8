@@ -1,0 +1,127 @@
+package dao;
+
+import java.util.List;
+
+import javax.persistence.Query;
+
+import entity.KhachHang;
+
+public class KhachHangDao extends AbstractCRUD<KhachHang> {
+	// tim khach hang theo ma
+	public KhachHang timKhachHangTheoMa(String ma) {
+		return em.find(KhachHang.class,ma);
+	}
+	// tim khach hang theo cmnd
+	public List<KhachHang> timKhachHangTheoCMND(int cmnd){
+		System.out.println("vao day");
+		try {
+			String sql="select kh from KhachHang kh where kh.cmndKH like :cmnd";
+			Query q=em.createQuery(sql,KhachHang.class);
+			q.setParameter("cmnd","%"+cmnd+"%" );
+			List<KhachHang>list=q.getResultList();
+			System.out.println(list.size());
+			System.out.println("ma no");
+			return list;
+		}catch(Exception e) {
+			System.out.println("cucucu");
+			return null;
+		}
+	}
+	// tim khach hang theo sdt
+	public List<KhachHang> timKhachHangTheoSDT(String sdt){
+		try {
+			String sql="select kh from KhachHang kh where kh.soDienThoai like :sdt";
+			Query q=em.createQuery(sql,KhachHang.class);
+			q.setParameter("sdt","%"+sdt+"%" );
+			List<KhachHang>list=q.getResultList();
+			return list;
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	// tim khach hang theo ten
+	public List<KhachHang> timKhachHangTheoTen(String ten){
+		try {
+			String sql="select kh from KhachHang kh where kh.tenKH like :ten";
+			Query q=em.createQuery(sql,KhachHang.class);
+			q.setParameter("ten","%"+ten+"%" );
+			List<KhachHang>list=q.getResultList();
+			return list;
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	// tim khach hang theo gt
+	public List<KhachHang> timKhachHangTheoGioiTinh(String gt){
+		try {
+			String sql="select kh from KhachHang kh where kh.cmndKH like :gt";
+			Query q=em.createQuery(sql,KhachHang.class);
+			q.setParameter("gt","%"+gt+"%" );
+			List<KhachHang>list=q.getResultList();
+			return list;
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	// danh sahc khach hang
+	public List<KhachHang> getAllKhachHang(){
+		try {
+			String sql="select kh from KhachHang kh";
+			Query q=em.createQuery(sql,KhachHang.class);
+			List<KhachHang>list=q.getResultList();
+			return list;
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	// them khach hang
+	public boolean themKhachHang(KhachHang kh) {
+		try {
+			if(timKhachHangTheoMa(kh.getMaKhachHang())!=null) {
+				return false;
+			}
+			else {
+				persist(kh);
+				return true;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	// xoa khach hang
+	public boolean xoaKhachHang(KhachHang kh) {
+		try {
+			KhachHang kh1=timKhachHangTheoMa(kh.getMaKhachHang());
+			if(kh1!=null) {
+				remove(kh1);
+				return true;
+			}else {
+				return false;
+			}
+			
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	// cap nhat khach hang
+	public boolean suaKhachHang(KhachHang kh) {
+		try {
+			KhachHang kh1=timKhachHangTheoMa(kh.getMaKhachHang());
+			System.out.println(kh1.getMaKhachHang()+"ma");
+			if(kh1!=null) {
+				kh1.setCmndKH(kh.getCmndKH());
+				kh1.setDaiChi(kh.getDaiChi());
+				kh1.setGioiTinh(kh.getGioiTinh());
+				kh1.setSoDienThoai(kh.getSoDienThoai());
+				kh1.setTenKH(kh.getTenKH());
+				merge(kh1);
+				return true;
+			}
+			else {
+				return false;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+	}
+}

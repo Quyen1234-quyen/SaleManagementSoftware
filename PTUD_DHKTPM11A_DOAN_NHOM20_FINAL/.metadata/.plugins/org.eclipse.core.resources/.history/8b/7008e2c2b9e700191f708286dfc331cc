@@ -1,0 +1,10 @@
+package dao;
+
+import entity.Admin;
+import entity.SanPham;
+
+public class SanPhamDao extends AbstractCRUD<SanPham> {
+	public SanPham timTheoMaSanPham(int ma){
+		return em.find(SanPham.class, ma);
+	}
+}

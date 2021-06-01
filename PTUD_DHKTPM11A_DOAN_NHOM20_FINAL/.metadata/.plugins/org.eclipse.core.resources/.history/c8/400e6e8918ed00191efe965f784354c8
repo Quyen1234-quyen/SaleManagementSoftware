@@ -1,0 +1,25 @@
+package gui;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+public class Gui_QuanLyNhanVien extends JFrame implements ActionListener {
+	public Gui_QuanLyNhanVien() {
+		
+	}
+	private void Build_GUI() {
+		setTitle("Trang Chủ");
+    	setSize(700, 550);
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	setLocationRelativeTo(null);
+    	setResizable(false);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

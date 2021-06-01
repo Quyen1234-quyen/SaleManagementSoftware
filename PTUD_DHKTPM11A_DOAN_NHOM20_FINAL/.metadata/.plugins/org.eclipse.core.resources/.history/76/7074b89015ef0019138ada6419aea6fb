@@ -1,0 +1,26 @@
+package controller;
+
+import java.util.List;
+
+import dao.DonDatHangDao;
+import entity.DonDatHang;
+
+public class XuLy_DonDatHang {
+	DonDatHangDao ddhDao=new DonDatHangDao();
+	//tim don dat hang theo ma
+	public DonDatHang timDonDatHangTheoMa(int ma) {
+		if(ddhDao.timDonDatHangTheoMa(ma)!=null) {
+			return ddhDao.timDonDatHangTheoMa(ma);
+		}else {
+			return null;
+		}
+	}
+	//danh sach don dat hang
+	public List<DonDatHang> getAllDonDatHang(){
+		if(ddhDao.getAllDonDatHang()!=null) {
+			return ddhDao.getAllDonDatHang();
+		}else {
+			return null;
+		}
+	}
+}

@@ -1,0 +1,135 @@
+package dao;
+
+import java.util.List;
+
+import javax.persistence.Query;
+
+import entity.Admin;
+import entity.NhanVien;
+
+public class NhanVienDao extends AbstractCRUD<NhanVien> {
+	public NhanVien timNhanVienTheoTen(String ten){
+		return em.find(NhanVien.class, ten);
+	}
+	public boolean themNhanVien(NhanVien nv){
+		try{
+			boolean t=false;
+			if(timNhanVienTheoTen(nv.getTenNhanVien().getTenTaiKhoan())==null) {
+				persist(nv);
+				t=true;
+			}else {
+				t=false;
+			}
+				
+			return t;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+	}
+	public boolean xoaNhanVienTheoTen(String ten){
+		try{ 
+			boolean t= false;
+			NhanVien nv=timNhanVienTheoTen(ten);
+			if(nv!=null) {
+				remove(nv);
+				t=true;
+			}else {
+				t=false;
+			}
+			return t;
+				
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+	}
+	public boolean xoaNhanVien(NhanVien nv){
+		try{
+			boolean t=false;
+			NhanVien nv1=timNhanVienTheoTen(nv.getTenNhanVien().getTenTaiKhoan());
+			if(nv1!=null) {
+				remove(nv1);
+				t=true;
+			}else {
+				t=false;
+			}
+			return t;
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+	}
+	public boolean suaNhanVien(String ten,String cmnd,String gt,String dc,String sdt){
+		try{
+			NhanVien nv=timNhanVienTheoTen(ten);
+			if(nv!=null){
+				nv.setCmndNV(cmnd);
+				nv.setGioiTinh(gt);
+				nv.setDiaChi(dc);
+				nv.setSoDienThoai(sdt);
+				merge(nv);
+				return true;
+				
+			}
+			else{
+				return false;
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+	}
+	public List<NhanVien> getAllNhanVien(){
+		try{
+			String sql="select nv from NhanVien nv";
+			Query q=em.createQuery(sql,NhanVien.class);
+			List<NhanVien> list= q.getResultList();
+			return list;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	public List<NhanVien> timNhanVienTheoSoDienThoai(String soDienThoai){
+		try{
+			String sql="select nv from NhanVien nv where nv.soDienThoai like :sdt";
+			Query q=em.createQuery(sql,NhanVien.class);
+			q.setParameter("sdt","%"+soDienThoai+"%" );
+			List<NhanVien>list=q.getResultList();
+			return list;
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			
+			return null;
+		}
+	}
+	public List<NhanVien> timNhanVienTheoCMND(String cmnd){
+		try{
+			String sql="select nv from NhanVien nv where nv.cmndNV like :cmnd";
+			Query q=em.createQuery(sql,NhanVien.class);
+			q.setParameter("cmnd","%"+cmnd+"%");
+			List<NhanVien> list=q.getResultList();
+			return list;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	public List<NhanVien> timNhanVienTheoGioiTinh(String gt){
+		try{
+			String sql="select nv from NhanVien nv where nv.gioiTinh like :gt";
+			Query q=em.createQuery(sql,NhanVien.class);
+			q.setParameter("gt", gt);
+			List<NhanVien> list=q.getResultList();
+			return list;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+}

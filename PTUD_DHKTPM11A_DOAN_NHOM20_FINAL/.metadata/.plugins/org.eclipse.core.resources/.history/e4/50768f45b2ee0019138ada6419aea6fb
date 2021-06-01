@@ -1,0 +1,47 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Query;
+
+import entity.DonDatHang;
+import entity.NhanVien;
+
+public class DonDatHangDao extends AbstractCRUD<DonDatHang> {
+	//tim don dat hang theo ma
+	public DonDatHang timDonDatHangTheoMa(int ma) {
+		return em.find(DonDatHang.class, ma);
+	}
+	
+	//danh sach don dat hang
+	public List<DonDatHang> getAllDonDatHang(){
+		try {
+			String sql="select ddh from DonDatHang ddh";
+			Query q=em.createQuery(sql,DonDatHang.class);
+			List<DonDatHang> list=q.getResultList();
+			return list;
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	// tim hoa don theo ten nhan vien
+	public List<DonDatHang> getDonDatHangTheoNhanVien(NhanVien nv){
+		try {
+			String sql="select ddh from DonDatHang ddh";
+			Query q=em.createQuery(sql,DonDatHang.class);
+			List<DonDatHang> ls=q.getResultList();
+			String tenNV=nv.getTenNhanVien().getTenTaiKhoan();
+			List<DonDatHang>list =new ArrayList<>();
+			for(DonDatHang ddh:ls){
+				if(ddh.getNhanVien().getTenNhanVien().getTenTaiKhoan()==tenNV){
+					list.add(ddh);
+				}
+			}
+			return list;
+			
+		}catch(Exception e) {
+			return null;
+		}
+	}
+}

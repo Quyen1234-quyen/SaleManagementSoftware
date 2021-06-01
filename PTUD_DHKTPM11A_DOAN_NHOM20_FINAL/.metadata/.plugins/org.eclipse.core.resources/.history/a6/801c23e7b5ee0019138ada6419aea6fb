@@ -1,0 +1,31 @@
+package dao;
+
+import java.util.List;
+
+public class ChiTietDonDatHangDao extends AbstractCRUD<ChiTietDonDatHangDao> {
+	// them chi tiet DonDatHang
+	
+	public boolean themChiTietDonDatHangDao(ChiTietDonDatHangDao ctddh) {
+		try {
+			if(ctddh!=null) {
+				persist(ctddh);
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	// chi tiet don dat hang theo ma don dat hang
+	public List<ChiTietDonDatHangDao> getALLChiTietDonDatHangTheoMaDDH(int maDDH){
+		try {
+			
+		}catch(Exception e) {
+			return null;
+		}
+	}
+	public int tongTienDonDatHang(int maDDH) {
+		
+	}
+}

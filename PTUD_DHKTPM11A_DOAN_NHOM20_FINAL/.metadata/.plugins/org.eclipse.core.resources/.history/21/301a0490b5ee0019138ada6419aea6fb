@@ -1,0 +1,21 @@
+package dao;
+
+public class ChiTietDonDatHangDao extends AbstractCRUD<ChiTietDonDatHangDao> {
+	// them chi tiet DonDatHang
+	
+	public boolean themChiTietDonDatHangDao(ChiTietDonDatHangDao ctddh) {
+		try {
+			if(ctddh!=null) {
+				persist(ctddh);
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	public int tongTienDonDatHang(int maDDH) {
+		
+	}
+}
